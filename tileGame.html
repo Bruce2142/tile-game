@@ -4,16 +4,35 @@
 <head>
     <meta charset='UTF-8'>
     <title>Tile Game</title>
-    <!--<link rel="stylesheet/scss" type="text/css" href="main.scss"> -->
 </head>
 
 <style type="text/css">
     body {
         display: grid;
-        grid-template-columns: 1fr repeat(5, 150px) 1fr;
-        grid-template-rows: 1fr repeat(5, 150px) 1fr;
+        grid-template-columns: 1fr [column-0-s] 150px [column-0-e column-1-s] 150px [column-1-e column-2-s] 150px [column-2-e column-3-s] 150px [column-3-e column-4-s] 150px [column-4-e column-5-s] 150px [column-5-e] 1fr;
+        grid-template-rows: 1fr [row-0-s] 150px [row-0-e row-1-s] 150px [row-1-e row-2-s] 150px [row-2-e row-3-s] 150px [row-3-e row-4-s] 150px [row-4-e row-5-s] 150px [row-5-e] 1fr;
         background-color: #54d0dd;
         grid-gap: 10px;
+    }
+
+    button {
+        background-color: #c0dce2;
+        border: none;
+        font-size: 30px;
+        font-family: "Sans-Serrif";
+    }
+
+    button:hover {
+        background-color: #c0dce2c0;
+    }
+
+    button:active {
+        background-color: #c0dce2b0;
+        border: 5px solid #c0dce2c0;
+    }
+
+    .highlight {
+        border:10px solid  #c0dce2;
     }
 
     .brown {
@@ -25,132 +44,162 @@
     }
 
     .box_11 {
-        grid-row: 3/4;
-        grid-column: 2/3;
+        grid-row: row-1-s/row-1-e;
+        grid-column: column-1-s/column-1-e;
     }
 
     .box_12 {
-        grid-row: 3/4;
-        grid-column: 3/4;
+        grid-row: row-1-s/row-1-e;
+        grid-column: column-2-s/column-2-e;
     }
 
     .box_13 {
-        grid-row: 3/4;
-        grid-column: 4/5;
+        grid-row: row-1-s/row-1-e;
+        grid-column: column-3-s/column-3-e;
     }
 
     .box_14 {
-        grid-row: 3/4;
-        grid-column: 5/6;
+        grid-row: row-1-s/row-1-e;
+        grid-column: column-4-s/column-4-e;
     }
 
     .box_21 {
-        grid-row: 4/5;
-        grid-column: 2/3;
+        grid-row: row-2-s/row-2-e;
+        grid-column: column-1-s/column-1-e;
     }
 
     .box_22 {
-        grid-row: 4/5;
-        grid-column: 3/4;
+        grid-row: row-2-s/row-2-e;
+        grid-column: column-2-s/column-2-e;
     }
 
     .box_23 {
-        grid-row: 4/5;
-        grid-column: 4/5;
+        grid-row: row-2-s/row-2-e;
+        grid-column: column-3-s/column-3-e;
     }
 
     .box_24 {
-        grid-row: 4/5;
-        grid-column: 5/6;
+        grid-row: row-2-s/row-2-e;
+        grid-column: column-4-s/column-4-e;
     }
 
     .box_31 {
-        grid-row: 5/6;
-        grid-column: 2/3;
+        grid-row: row-3-s/row-3-e;
+        grid-column: column-1-s/column-1-e;
     }
 
     .box_32 {
-        grid-row: 5/6;
-        grid-column: 3/4;
+        grid-row: row-3-s/row-3-e;
+        grid-column: column-2-s/column-2-e;
     }
 
     .box_33 {
-        grid-row: 5/6;
-        grid-column: 4/5;
+        grid-row: row-3-s/row-3-e;
+        grid-column: column-3-s/column-3-e;
     }
 
     .box_34 {
-        grid-row: 5/6;
-        grid-column: 5/6;
+        grid-row: row-3-s/row-3-e;
+        grid-column: column-4-s/column-4-e;
     }
 
     .box_41 {
-        grid-row: 6/7;
-        grid-column: 2/3;
+        grid-row: row-4-s/row-4-e;
+        grid-column: column-1-s/column-1-e;
     }
 
     .box_42 {
-        grid-row: 6/7;
-        grid-column: 3/4;
+        grid-row: row-4-s/row-4-e;
+        grid-column: column-2-s/column-2-e;
     }
 
     .box_43 {
-        grid-row: 6/7;
-        grid-column: 4/5;
+        grid-row: row-4-s/row-4-e;
+        grid-column: column-3-s/column-3-e;
     }
 
     .box_44 {
-        grid-row: 6/7;
-        grid-column: 5/6;
-    }
+        grid-row: row-4-s/row-4-e;
+        grid-column: column-4-s/column-4-e;
+    } 
 
     .button_r1 {
-        grid-column: 6/7;
-        grid-row: 3/4;
+        grid-column: column-5-s/column-5-e;
+        grid-row: row-1-s/row-1-e;
     }
 
     .button_r2 {
-        grid-column: 6/7;
-        grid-row: 4/5;
+        grid-column: column-5-s/column-5-e;
+        grid-row: row-2-s/row-2-e;
     }
 
     .button_r3 {
-        grid-column: 6/7;
-        grid-row: 5/6;
+        grid-column: column-5-s/column-5-e;
+        grid-row: row-3-s/row-3-e;
     }
 
     .button_r4 {
-        grid-column: 6/7;
-        grid-row: 6/7;
+        grid-column: column-5-s/column-5-e;
+        grid-row: row-4-s/row-4-e;
     }
 
     .button_c1 {
-        grid-column: 2/3;
-        grid-row: 2/3;
+        grid-column: column-1-s/column-1-e;
+        grid-row: row-0-s/row-0-e;
     }
 
     .button_c2 {
-        grid-column: 3/4;
-        grid-row: 2/3;
+        grid-column: column-2-s/column-2-e;
+        grid-row: row-0-s/row-0-e;
     }
 
     .button_c3 {
-        grid-column: 4/5;
-        grid-row: 2/3;
+        grid-column: column-3-s/column-3-e;
+        grid-row: row-0-s/row-0-e;
     }
 
     .button_c4 {
-        grid-column: 5/6;
-        grid-row: 2/3;
+        grid-column: column-4-s/column-4-e;
+        grid-row: row-0-s/row-0-e;
     }
 
     .button_corners {
-        grid-column: 6/7;
-        grid-row: 2/3;
+        grid-column: column-1-s/column-4-e;
+        grid-row: row-5-s/row-5-e;
+    }
+
+    .button_diagnal_tb {
+        grid-column: column-5-s/column-5-e;
+        grid-row: row-5-s/row-5-e;
+    }
+
+    .button_diagnal_bt {
+        grid-column: column-5-s/column-5-e;
+        grid-row: row-0-s/row-0-e;
+    }
+
+    .button_reset {
+        grid-column: column-0-s/column-0-e;
+        grid-row: row-0-s/row-2-e;
+    }
+
+    .button_solution {
+        grid-column: column-0-s/column-0-e;
+        grid-row: row-3-s/row-5-e;
     }
 </style>
 
 <body>
+    <!-- <div class="row-1-highlight"></div>
+    <div class="row-2-highlight"></div>
+    <div class="row-3-highlight"></div>
+    <div class="row-4-highlight"></div>
+
+    <div class="column-1-highlight"></div>
+    <div class="column-2-highlight"></div>
+    <div class="column-3-highlight"></div>
+    <div class="column-4-highlight"></div> -->
+
     <button onclick="flip_row_1()" class="button_r1">Row 1</button>
     <button onclick="flip_row_2()" class="button_r2">Row 2</button>
     <button onclick="flip_row_3()" class="button_r3">Row 3</button>
@@ -162,26 +211,30 @@
     <button onclick="flip_column_4()" class="button_c4">Column 4</button>
 
     <button onclick="flip_corners()" class="button_corners">Corners</button>
+    <button onclick="flip_diagnal_bt()" class="button_diagnal_bt">Diagnal</button>
+    <button onclick="flip_diagnal_tb()" class="button_diagnal_tb">Diagnal</button>
+    <button onclick="Reset()" class="button_reset">Reset</button>
+    <button onclick="Solution()" class="button_solution">Solution</button>
 
-    <div class="row_1 column_1 box_11 corner blue"></div>
-    <div class="row_1 column_2 box_12 brown"></div>
-    <div class="row_1 column_3 box_13 blue"></div>
-    <div class="row_1 column_4 box_14 corner blue"></div>
+    <div class="box row_1 column_1 box_11 corner diagnal_tb blue"></div>
+    <div class="box row_1 column_2 box_12 brown"></div>
+    <div class="box row_1 column_3 box_13 blue"></div>
+    <div class="box row_1 column_4 box_14 corner diagnal_bt blue"></div>
 
-    <div class="row_2 column_1 box_21 blue"></div>
-    <div class="row_2 column_2 box_22 blue"></div>
-    <div class="row_2 column_3 box_23 blue"></div>
-    <div class="row_2 column_4 box_24 brown"></div>
+    <div class="box row_2 column_1 box_21 blue"></div>
+    <div class="box row_2 column_2 box_22 diagnal_tb blue"></div>
+    <div class="box row_2 column_3 box_23 diagnal_bt blue"></div>
+    <div class="box row_2 column_4 box_24 brown"></div>
 
-    <div class="row_3 column_1 box_31 brown"></div>
-    <div class="row_3 column_2 box_32 blue"></div>
-    <div class="row_3 column_3 box_33 blue"></div>
-    <div class="row_3 column_4 box_34 blue"></div>
+    <div class="box row_3 column_1 box_31 brown"></div>
+    <div class="box row_3 column_2 box_32 diagnal_bt blue"></div>
+    <div class="box row_3 column_3 box_33 diagnal_tb blue"></div>
+    <div class="box row_3 column_4 box_34 blue"></div>
 
-    <div class="row_4 column_1 box_41 corner blue"></div>
-    <div class="row_4 column_2 box_42 blue"></div>
-    <div class="row_4 column_3 box_43 brown"></div>
-    <div class="row_4 column_4 box_44 corner blue"></div>
+    <div class="box row_4 column_1 box_41 corner diagnal_bt blue"></div>
+    <div class="box row_4 column_2 box_42 blue"></div>
+    <div class="box row_4 column_3 box_43 brown"></div>
+    <div class="box row_4 column_4 box_44 corner diagnal_tb blue"></div>
 </body>
 
 <script type="text/javascript">
@@ -282,6 +335,220 @@
         toggleColors(1);
         toggleColors(2);
         toggleColors(3);
+    }
+
+    function flip_diagnal_bt() {
+        function toggleColors(ID) {
+            document.getElementsByClassName("diagnal_bt")[ID].classList.toggle("blue");
+            document.getElementsByClassName("diagnal_bt")[ID].classList.toggle("brown");
+        }
+        toggleColors(0);
+        toggleColors(1);
+        toggleColors(2);
+        toggleColors(3);
+    }
+
+    function flip_diagnal_tb() {
+        function toggleColors(ID) {
+            document.getElementsByClassName("diagnal_tb")[ID].classList.toggle("blue");
+            document.getElementsByClassName("diagnal_tb")[ID].classList.toggle("brown");
+        }
+        toggleColors(0);
+        toggleColors(1);
+        toggleColors(2);
+        toggleColors(3);
+    }
+
+    function Reset() {
+        var boxes = document.getElementsByClassName("box")
+
+        function makeBrown(element) {
+            if(element.classList.contains("blue")) {
+                element.classList.toggle("brown");
+                element.classList.toggle("blue");
+            }
+        }
+        
+        [].forEach.call(boxes, function(element) {
+            if(element.classList.contains("brown")) {
+                element.classList.toggle("blue");
+                element.classList.toggle("brown");
+            }
+        })
+
+        function toggleColors12() {
+            document.getElementsByClassName("box_12")[0].classList.toggle("blue");
+            document.getElementsByClassName("box_12")[0].classList.toggle("brown");
+        }
+        toggleColors12();
+
+        function toggleColors24() {
+            document.getElementsByClassName("box_24")[0].classList.toggle("blue");
+            document.getElementsByClassName("box_24")[0].classList.toggle("brown");
+        }
+        toggleColors24();
+
+        function toggleColors31() {
+            document.getElementsByClassName("box_31")[0].classList.toggle("blue");
+            document.getElementsByClassName("box_31")[0].classList.toggle("brown");
+        }
+        toggleColors31();
+
+        function toggleColors43() {
+            document.getElementsByClassName("box_43")[0].classList.toggle("blue");
+            document.getElementsByClassName("box_43")[0].classList.toggle("brown");
+        }
+        toggleColors43();
+    }
+
+    function Solution() {
+        Reset();
+
+        function highlight_r2() {
+            function toggleHighlight(ID) {
+                document.getElementsByClassName("row_2")[ID].classList.toggle("highlight");
+            }
+            function runHighlight() {
+                toggleHighlight(0);
+                toggleHighlight(1);
+                toggleHighlight(2);
+                toggleHighlight(3);
+            }
+            runHighlight();
+
+            setTimeout(flip_row_2, 500);
+
+            setTimeout(runHighlight, 1000);
+        }
+
+        function highlight_r3() {
+            function toggleHighlight(ID) {
+                document.getElementsByClassName("row_3")[ID].classList.toggle("highlight");
+            }
+            function runHighlight() {
+                toggleHighlight(0);
+                toggleHighlight(1);
+                toggleHighlight(2);
+                toggleHighlight(3);
+            }
+            runHighlight();
+
+            setTimeout(flip_row_3, 500);
+
+            setTimeout(runHighlight, 1000);
+        }
+
+        function highlight_r4() {
+            function toggleHighlight(ID) {
+                document.getElementsByClassName("row_4")[ID].classList.toggle("highlight");
+            }
+            function runHighlight() {
+                toggleHighlight(0);
+                toggleHighlight(1);
+                toggleHighlight(2);
+                toggleHighlight(3);
+            }
+            runHighlight();
+
+            setTimeout(flip_row_4, 500);
+
+            setTimeout(runHighlight, 1000);
+        }
+
+        function highlight_c1() {
+            function toggleHighlight(ID) {
+                document.getElementsByClassName("column_1")[ID].classList.toggle("highlight");
+            }
+            function runHighlight() {
+                toggleHighlight(0);
+                toggleHighlight(1);
+                toggleHighlight(2);
+                toggleHighlight(3);
+            }
+            runHighlight();
+
+            setTimeout(flip_column_1, 500);
+
+            setTimeout(runHighlight, 1000);
+        }
+
+        function highlight_c3() {
+            function toggleHighlight(ID) {
+                document.getElementsByClassName("column_3")[ID].classList.toggle("highlight");
+            }
+            function runHighlight() {
+                toggleHighlight(0);
+                toggleHighlight(1);
+                toggleHighlight(2);
+                toggleHighlight(3);
+            }
+            runHighlight();
+
+            setTimeout(flip_column_3, 500);
+
+            setTimeout(runHighlight, 1000);
+        }
+
+        function highlight_c4() {
+            function toggleHighlight(ID) {
+                document.getElementsByClassName("column_4")[ID].classList.toggle("highlight");
+            }
+            function runHighlight() {
+                toggleHighlight(0);
+                toggleHighlight(1);
+                toggleHighlight(2);
+                toggleHighlight(3);
+            }
+            runHighlight();
+
+            setTimeout(flip_column_4, 500);
+
+            setTimeout(runHighlight, 1000);
+        }
+
+        function highlight_corners() {
+            function toggleHighlight(ID) {
+                document.getElementsByClassName("corner")[ID].classList.toggle("highlight");
+            }
+            function runHighlight() {
+                toggleHighlight(0);
+                toggleHighlight(1);
+                toggleHighlight(2);
+                toggleHighlight(3);
+            }
+            runHighlight();
+
+            setTimeout(flip_corners, 500);
+
+            setTimeout(runHighlight, 1000);
+        }
+
+        function highlight_diagnal_tb() {
+            function toggleHighlight(ID) {
+                document.getElementsByClassName("diagnal_tb")[ID].classList.toggle("highlight");
+            }
+            function runHighlight() {
+                toggleHighlight(0);
+                toggleHighlight(1);
+                toggleHighlight(2);
+                toggleHighlight(3);
+            }
+            runHighlight();
+
+            setTimeout(flip_diagnal_tb, 500);
+
+            setTimeout(runHighlight, 1000);
+        }
+        highlight_r2();
+        setTimeout(highlight_r3, 2000);
+        setTimeout(highlight_corners, 4000);
+        setTimeout(highlight_c1, 6000);
+        setTimeout(highlight_r4, 8000);
+        setTimeout(highlight_c3, 10000);
+        setTimeout(highlight_c4, 12000);
+        setTimeout(highlight_diagnal_tb, 14000);
+        setTimeout(highlight_c4, 16000);
+        setTimeout(highlight_r2, 18000);
     }
 </script>
 
