@@ -403,6 +403,23 @@
 
     function Solution() {
         Reset();
+        
+        function highlight_r1() {
+            function toggleHighlight(ID) {
+                document.getElementsByClassName("row_1")[ID].classList.toggle("highlight");
+            }
+            function runHighlight() {
+                toggleHighlight(0);
+                toggleHighlight(1);
+                toggleHighlight(2);
+                toggleHighlight(3);
+            }
+            runHighlight();
+
+            setTimeout(flip_row_1, 500);
+
+            setTimeout(runHighlight, 1000);
+        }
 
         function highlight_r2() {
             function toggleHighlight(ID) {
@@ -468,6 +485,23 @@
             runHighlight();
 
             setTimeout(flip_column_1, 500);
+
+            setTimeout(runHighlight, 1000);
+        }
+
+        function highlight_c2() {
+            function toggleHighlight(ID) {
+                document.getElementsByClassName("column_2")[ID].classList.toggle("highlight");
+            }
+            function runHighlight() {
+                toggleHighlight(0);
+                toggleHighlight(1);
+                toggleHighlight(2);
+                toggleHighlight(3);
+            }
+            runHighlight();
+
+            setTimeout(flip_column_2, 500);
 
             setTimeout(runHighlight, 1000);
         }
@@ -539,16 +573,30 @@
 
             setTimeout(runHighlight, 1000);
         }
-        highlight_r2();
-        setTimeout(highlight_r3, 2000);
-        setTimeout(highlight_corners, 4000);
-        setTimeout(highlight_c1, 6000);
-        setTimeout(highlight_r4, 8000);
-        setTimeout(highlight_c3, 10000);
-        setTimeout(highlight_c4, 12000);
-        setTimeout(highlight_diagnal_tb, 14000);
-        setTimeout(highlight_c4, 16000);
-        setTimeout(highlight_r2, 18000);
+
+        function highlight_diagnal_bt() {
+            function toggleHighlight(ID) {
+                document.getElementsByClassName("diagnal_bt")[ID].classList.toggle("highlight");
+            }
+            function runHighlight() {
+                toggleHighlight(0);
+                toggleHighlight(1);
+                toggleHighlight(2);
+                toggleHighlight(3);
+            }
+            runHighlight();
+
+            setTimeout(flip_diagnal_bt, 500);
+
+            setTimeout(runHighlight, 1000);
+        }
+        
+        highlight_corners();
+        setTimeout(highlight_diagnal_tb, 2000);
+        setTimeout(highlight_r1, 4000);
+        setTimeout(highlight_r2, 6000);
+        setTimeout(highlight_c2, 8000);
+        setTimeout(highlight_c4, 10000);
     }
 </script>
 
